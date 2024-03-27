@@ -14,16 +14,12 @@ body {
     height: 100vh;
     /* Smoother radial gradient from the center */
     /*background: radial-gradient(circle, #4e4e4e 0%, #3b3b3b 50%, #2b2b2b 100%);*/
-    background: radial-gradient(circle at top, #4e4e4e 0%,#414141 25%, #343434 50%, #282828 75%, #1b1b1b 100%);/*78 27*/
+    background: radial-gradient(circle at bottom, #3c3f58 0%,#232649 25%, #1c2049 50%, #12163f 75%, #06081f 100%);/*78 27*/
     color: white; /* Set the text color to white for better visibility */
 }
 
 #navbar  {
     background: #2b2b2b; /* Dark gray color */
-}
-
-#menu-button .bar {
-    background-color: white; /* Set the hamburger icon color to white for better visibility */
 }
 
 #navbar a {
@@ -87,12 +83,23 @@ body {
     }
 }
 
+@media screen and (max-width: 601px) {
+    #navbar {
+        z-index: 10; 
+        background-color: #2b2b2b;
+    }
+}
+
+@media screen {
+    
+}
+
 .dot {
     position: absolute;
     background-color: #5e5e5e; /* Light gray color */
     border-radius: 50%;
     animation: fade 15s infinite ease-in-out;
-    z-index: -1;
+    z-index: 0;
 }
 
 @keyframes fade {
