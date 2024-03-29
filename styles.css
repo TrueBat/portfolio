@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "ubuntu mono";
+    src: url("UbuntuMono-Regular.ttf") format("truetype");
+}
+
+*{
+    font-family: 'ubuntu mono';
+}
+
 #navbar {
     position: fixed;
     top: 0;
@@ -9,28 +18,53 @@
     transition: right 0.3s ease;
 }
 
+body, .projects {
+    height: auto;
+    overflow: auto; 
+    
+}
+.projects {
+    padding: 0 5%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    padding-top: 69px;
+    overflow: hidden;
+    text-align: center;
+    font-size: large;
+}
+
+.project img {
+    max-width: 100%;
+    height: auto; 
+    width: 80%;
+}
+
+@media screen and (max-width: 600px) {
+    .project img {
+        width: 90%; 
+    }
+}
+
 body {
-    /* Set the height to cover the full viewport height */
-    height: 100vh;
-    /* Smoother radial gradient from the center */
-    /*background: radial-gradient(circle, #4e4e4e 0%, #3b3b3b 50%, #2b2b2b 100%);*/
     background: radial-gradient(circle at bottom, #3c3f58 0%,#25295d 25%, #191e5f 50%, #060714 75%, #000000 100%);/*78 27*/
-    color: white; /* Set the text color to white for better visibility */
+    color: white;
 }
 
 #navbar  {
-    background: #2b2b2b; /* Dark gray color */
+    background: #2b2b2b;
 }
 
 /* CSS */
 #navbar a {
     display: block;
     padding: 10px;
-    font-size: 35px; /* Adjust as needed */
-    line-height: 35px; /* Match the line-height with the font-size */
+    font-size: 35px; 
+    line-height: 35px; 
     font-family: 'Arial', sans-serif;
-    text-decoration: none; /* Remove underline */
-    color: #f0f0f0; /* Light gray color for better visibility on a dark background */
+    text-decoration: none;
+    color: #f0f0f0; 
 }
 
 #menu-button {
@@ -60,10 +94,14 @@ body {
 
 @media screen and (min-width: 600px) {
     #navbar {
-        position: static;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
         height: auto;
-        width: auto;
-        background-color: transparent; 
+        width: 100%;
+        background-color: transparent;
+        background: radial-gradient(circle at bottom, rgb(25, 30, 95, 0.85)0%, rgb(6, 7, 20, 0.85)40% , rgb(0, 0, 0, 0.85)100%);;
         padding: 0;
         display: flex;
         justify-content: space-around;
@@ -73,13 +111,13 @@ body {
     #navbar a::after {
         position: absolute;
         content: '';
-        left: 0; /* Start from the left */
+        left: 0;
         bottom: 0;
-        width: 100%; /* Cover 100% of the text */
-        height: 6px; /* Adjust as needed to change the thickness of the underline */
+        width: 100%; 
+        height: 6px; 
         background: rgb(30, 0, 225,0.9);
         transform: scaleX(0);
-        transform-origin: center; /* Change to center */
+        transform-origin: center;
         transition: transform 0.3s ease-in-out;
     }
     
@@ -93,7 +131,7 @@ body {
 
     #navbar a {
         letter-spacing: 2px;
-        transition: text-shadow 3s ease-in;
+        transition: text-shadow 1s ease-in;
         position: relative;
         margin-bottom: 0;
     }
@@ -103,12 +141,12 @@ body {
     }
 }
 
-/* Styles for screens wider than 600px */
+/* Styles for Desktop */
 @media screen and (min-width: 601px) {
     #navbar {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
-        padding: 10px; /* Reduce padding around the content */
-        height: 50px; /* Reduce the height */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+        padding: 10px;
+        height: 50px; 
     }
 }
 
@@ -124,11 +162,12 @@ body {
 }
 
 .dot {
-    position: absolute;
-    background-color: #5e5e5e; /* Light gray color */
+    position: fixed;
+    background-color: #5e5e5e;
     border-radius: 50%;
-    animation: fade 15s infinite ease-in-out;
+    animation: fade 12s infinite ease-in-out;
     z-index: 2;
+    pointer-events: none;
 }
 
 @keyframes fade {
@@ -145,16 +184,16 @@ body {
 html, body {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Hide any child elements that go outside the body */
+    overflow: auto;
 }
 
 .center {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align items to the start of the container */
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
-    padding-top: 20vh; /* Add some padding to move the name down slightly */
+    padding-top: 20vh;
 }
 
 .name {
@@ -166,11 +205,33 @@ html, body {
 .beingTyped::after {
     content: '_';
     position: absolute;
-    right: -0.05em; /* Adjust as needed to position the cursor */
+    right: -0.05em; 
     animation: blink 1s infinite;
 }
 
 @keyframes blink {
     0%, 49% {opacity: 1;}
     50%, 100% {opacity: 0;}
+}
+
+body::before {
+    content: "";
+    position: fixed; 
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    background: radial-gradient(circle at bottom, #3c3f58 0%,#25295d 25%, #191e5f 50%, #060714 75%, #000000 100%);
+    z-index: -1; 
+}
+
+.center {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    height: auto; 
+    overflow: auto;
 }
