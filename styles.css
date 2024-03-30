@@ -3,7 +3,7 @@
     src: url("UbuntuMono-Regular.ttf") format("truetype");
 }
 
-*{
+* {
     font-family: 'ubuntu mono';
 }
 
@@ -13,46 +13,55 @@
     right: -100%;
     height: 100%;
     width: 80%;
-    background-color: #333; 
+    background-color: #333;
     padding: 20px;
     transition: right 0.3s ease;
 }
 
-body, .projects {
+body,
+.projects {
     height: auto;
-    overflow: auto; 
-    
+    overflow: auto;
+
 }
+
 .projects {
     padding: 0 5%;
-    z-index: 2;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     padding-top: 69px;
     overflow: hidden;
     text-align: center;
     font-size: large;
+    position: relative;
+
+}
+
+.project {
+    width: 90%;
 }
 
 .project img {
     max-width: 100%;
-    height: auto; 
-    width: 80%;
+    height: auto;
+    width: 90%;
+    z-index: 3;
 }
 
 @media screen and (max-width: 600px) {
     .project img {
-        width: 90%; 
+        width: 90%;
     }
 }
 
 body {
-    background: radial-gradient(circle at bottom, #3c3f58 0%,#25295d 25%, #191e5f 50%, #060714 75%, #000000 100%);/*78 27*/
+    background: radial-gradient(circle at bottom, #3c3f58 0%, #25295d 25%, #191e5f 50%, #060714 75%, #000000 100%);
+    /*78 27*/
     color: white;
 }
 
-#navbar  {
+#navbar {
     background: #2b2b2b;
 }
 
@@ -60,11 +69,11 @@ body {
 #navbar a {
     display: block;
     padding: 10px;
-    font-size: 35px; 
-    line-height: 35px; 
+    font-size: 35px;
+    line-height: 35px;
     font-family: 'Arial', sans-serif;
     text-decoration: none;
-    color: #f0f0f0; 
+    color: #f0f0f0;
 }
 
 #menu-button {
@@ -81,6 +90,7 @@ body {
     top: 10px;
     right: 10px;
     cursor: pointer;
+    z-index: 11;
 }
 
 #menu-button .bar {
@@ -101,7 +111,8 @@ body {
         height: auto;
         width: 100%;
         background-color: transparent;
-        background: radial-gradient(circle at bottom, rgb(25, 30, 95, 0.85)0%, rgb(6, 7, 20, 0.85)40% , rgb(0, 0, 0, 0.85)100%);;
+        background: radial-gradient(circle at bottom, rgb(25, 30, 95, 0.85)0%, rgb(6, 7, 20, 0.85)40%, rgb(0, 0, 0, 0.85)100%);
+        ;
         padding: 0;
         display: flex;
         justify-content: space-around;
@@ -113,18 +124,20 @@ body {
         content: '';
         left: 0;
         bottom: 0;
-        width: 100%; 
-        height: 6px; 
-        background: rgb(30, 0, 225,0.9);
+        width: 100%;
+        height: 6px;
+        background: rgb(30, 0, 225, 0.9);
         transform: scaleX(0);
         transform-origin: center;
         transition: transform 0.3s ease-in-out;
     }
-    
-    #navbar a:hover {
+
+    .active {
         text-shadow: 0 0 10px #a0a0ff, 0 0 20px #151E86, 0 0 30px #a0a0ff, 0 0 40px cyan;
     }
-    
+
+
+
     #navbar a:hover::after {
         transform: scaleX(1);
     }
@@ -144,22 +157,20 @@ body {
 /* Styles for Desktop */
 @media screen and (min-width: 601px) {
     #navbar {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         padding: 10px;
-        height: 50px; 
+        height: 50px;
     }
 }
 
 @media screen and (max-width: 601px) {
     #navbar {
-        z-index: 10; 
+        z-index: 10;
         background-color: #2b2b2b;
     }
 }
 
-@media screen {
-    
-}
+@media screen {}
 
 .dot {
     position: fixed;
@@ -171,9 +182,17 @@ body {
 }
 
 @keyframes fade {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 body {
@@ -181,7 +200,8 @@ body {
     padding: 0;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     overflow: auto;
@@ -205,24 +225,32 @@ html, body {
 .beingTyped::after {
     content: '_';
     position: absolute;
-    right: -0.05em; 
+    right: -0.05em;
     animation: blink 1s infinite;
 }
 
 @keyframes blink {
-    0%, 49% {opacity: 1;}
-    50%, 100% {opacity: 0;}
+
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
 }
 
 body::before {
     content: "";
-    position: fixed; 
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0; 
-    background: radial-gradient(circle at bottom, #3c3f58 0%,#25295d 25%, #191e5f 50%, #060714 75%, #000000 100%);
-    z-index: -1; 
+    left: 0;
+    background: radial-gradient(circle at bottom, #3c3f58 0%, #25295d 25%, #191e5f 50%, #060714 75%, #000000 100%);
+    z-index: -1;
 }
 
 .center {
@@ -230,8 +258,8 @@ body::before {
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
-    height: auto; 
+    height: auto;
     overflow: auto;
 }
