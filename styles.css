@@ -7,6 +7,21 @@
     font-family: 'ubuntu mono';
 }
 
+.contact {
+    font-size: 2em;
+    /* Adjust to make the text bigger */
+    text-align: center;
+    /* Center the text horizontally */
+    display: flex;
+    /* Use flexbox to center the content vertically */
+    flex-direction: column;
+    /* Stack the content vertically */
+    justify-content: center;
+    /* Center the content vertically */
+    height: 80vh;
+    /* Take up the full viewport height */
+}
+
 #navbar {
     position: fixed;
     top: 0;
@@ -35,11 +50,11 @@ body,
     text-align: center;
     font-size: large;
     position: relative;
-
 }
 
 .project {
     width: 90%;
+    margin-bottom: 30px;
 }
 
 .project img {
